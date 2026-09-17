@@ -30,8 +30,8 @@ export function Footer() {
           </span>
           <span className="footer__org-sep" aria-hidden="true">✦</span>
           <span className="footer__org">
+            In association with
             <img src={assets.logos.dhwani} alt="" className="footer__org-logo" loading="lazy" />
-            In association with <strong>{festival.organization.association}</strong>
           </span>
         </div>
 

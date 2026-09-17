@@ -21,7 +21,7 @@ export function About() {
 
         <div ref={textRef} className="about__copy reveal">
           <p className="about__text">
-            Rangam is the film festival of Dhwani '26, conducted by the CET Film Society in association with Dhwani '26.
+            Rangam is the film festival of CET, conducted by the CET Film Society in association with Dhwani '26.
           </p>
           <p className="about__text">
             A celebration of student cinema, Rangam brings short films, documentaries and animation to the big screen — creating a space for filmmakers and audiences to watch, discover and engage with cinema together.
@@ -29,7 +29,6 @@ export function About() {
         </div>
       </div>
 
-      <img src={assets.mascot.mask} alt="" className="about__mask" loading="lazy" aria-hidden="true" />
     </section>
   )
 }
