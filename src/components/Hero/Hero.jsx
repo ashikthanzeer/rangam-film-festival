@@ -13,25 +13,6 @@ import './Hero.css'
 function FilmLeader() {
   return (
     <div className="hero__filmstrip__leaf">
-      <span className="hero__filmstrip__sprockets hero__filmstrip__sprockets--top" />
-      <span className="hero__filmstrip__frames">
-        <span className="hero__filmstrip__cell">
-          <b>5</b>
-          <small>Rangam '26</small>
-        </span>
-        <span className="hero__filmstrip__cell">
-          <b>4</b>
-          <small>24 FPS</small>
-        </span>
-        <span className="hero__filmstrip__cell">
-          <b>3</b>
-          <small>SCR 01</small>
-        </span>
-        <span className="hero__filmstrip__cell">
-          <b>2</b>
-          <small>REEL 07</small>
-        </span>
-      </span>
       <span className="hero__filmstrip__sprockets hero__filmstrip__sprockets--bottom" />
     </div>
   )

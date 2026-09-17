@@ -53,8 +53,6 @@ export function SceneLayer({ variant = 'hero' }) {
         />
       ))}
 
-      {/* drifting cloud band (bottom) */}
-      <img src="/assets/web/clouds.png" alt="" className="scene__clouds" loading="eager" />
 
       {/* hanging lantern */}
       <img src="/assets/web/lantern.png" alt="" className="scene__lantern" loading="lazy" />
