@@ -103,18 +103,10 @@ export function Hero() {
             <span className="hero__dates-month">September</span>
             <span className="hero__dates-row">
               <span className="hero__dates-days">22 — 27</span>
-              <span className="hero__dates-year">2026</span>
             </span>
           </div>
 
           {/* tiny production / print annotations */}
-          <ul className="hero__meta" aria-hidden="true">
-            <li>Frame 01</li>
-            <li>Roll 01</li>
-            <li>24 fps</li>
-            <li>Rangam '26</li>
-            <li>Screen 01</li>
-          </ul>
         </div>
 
         {/* The mascot — the hero's large piece of festival artwork.
