@@ -3,12 +3,12 @@ import { useId } from 'react'
 import './SectionHeading.css'
 
 /**
- * Reusable manga-styled section heading.
+ * Reusable section heading.
  * Props:
  *  - eyebrow  : small label above the title
  *  - title    : main heading (node or string)
  *  - kicker   : accent word rendered in the display font
- *  - note     : optional side note (replaces the disclosure text)
+ *  - note     : optional side note
  *  - align    : 'left' (default) | 'center'
  *  - tone     : 'paper' (default, dark bg) | 'dark' (used on light bg)
  */
@@ -17,12 +17,7 @@ export function SectionHeading({ eyebrow, title, kicker, note, align = 'left', t
   const ref = useReveal()
   return (
     <header ref={ref} className={`section-head reveal section-head--${align} section-head--${tone}`}>
-      {eyebrow && (
-        <span className="eyebrow" aria-hidden="true">
-          <span className="eyebrow__star">✦</span>
-          {eyebrow}
-        </span>
-      )}
+      {eyebrow && <span className="eyebrow" aria-hidden="true">{eyebrow}</span>}
       <h2 className="section-head__title" id={id}>
         {title}
         {kicker && (
@@ -32,7 +27,7 @@ export function SectionHeading({ eyebrow, title, kicker, note, align = 'left', t
           </>
         )}
       </h2>
-      {(note || align === 'center') && <p className="section-head__note">{note}</p>}
+      {note && <p className="section-head__note">{note}</p>}
     </header>
   )
 }

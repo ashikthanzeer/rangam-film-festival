@@ -1,66 +1,47 @@
 import { SectionHeading } from '../SectionHeading.jsx'
 import { festival } from '../../data/festivalData.js'
 import { useReveal } from '../../hooks/useReveal.js'
-import { MailIcon, MapPinIcon, InstagramIcon, TicketIcon } from '../icons.jsx'
-import { Sticker } from '../Sticker.jsx'
 import './Contact.css'
-
-const VENUE_URL =
-  festival.venue.mapUrl ??
-  `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(`${festival.venue.name}, ${festival.venue.area}`)}`
 
 export function Contact() {
   const ref = useReveal()
+  const comp = festival.shortFilmCompetition
 
   return (
     <section id="contact" className="section contact bg-paper">
-      <div className="contact__tex halftone halftone--strong" aria-hidden="true" />
-
       <div className="container contact__in">
         <SectionHeading
-          eyebrow="Say hello"
-          title="Reach "
-          kicker="out"
+          eyebrow="Reach Out"
+          title="Get in "
+          kicker="touch"
           tone="dark"
-          note={`Questions, films, ideas or partnerships — the Rangam desk at ${festival.year} reads everything.`}
+          note="Questions about the Rangam Short Film Competition or the festival?"
         />
 
-        <div ref={ref} className="contact__card reveal">
-          <a className="contact__item" href={`mailto:${festival.contact.email}`}>
-            <span className="contact__icon"><MailIcon /></span>
-            <span className="contact__meta">
-              <small>Email us</small>
-              {festival.contact.email}
-            </span>
-          </a>
+        <div ref={ref} className="contact__content reveal">
+          <div className="contact__section">
+            <h4 className="contact__section-title">Short Film Competition</h4>
+            <div className="contact__contacts">
+              {comp.contacts.map((contact) => (
+                <div key={contact.tel} className="contact__contact">
+                  <span className="contact__contact-name">{contact.name}</span>
+                  <a href={contact.tel} className="contact__contact-phone">{contact.phone}</a>
+                </div>
+              ))}
+            </div>
+          </div>
 
-          <a className="contact__item" href={VENUE_URL} target="_blank" rel="noreferrer">
-            <span className="contact__icon"><MapPinIcon /></span>
-            <span className="contact__meta">
-              <small>Find us</small>
-              {festival.venue.name}
-            </span>
-          </a>
-
-          <a className="contact__item" href={festival.socials.rangam.url} target="_blank" rel="noreferrer">
-            <span className="contact__icon"><InstagramIcon /></span>
-            <span className="contact__meta">
-              <small>Follow the fest</small>
-              {festival.socials.rangam.handle}
-            </span>
-          </a>
-
-          <a className="contact__item" href="#competition">
-            <span className="contact__icon"><TicketIcon /></span>
-            <span className="contact__meta">
-              <small>Registrations · {festival.shortFilmCompetition.registrationFee}</small>
-              {festival.shortFilmCompetition.title}
-            </span>
-          </a>
-
-          <Sticker tone="magenta" rotate={5} className="contact__stamp">
-            Full speed ahead
-          </Sticker>
+          <div className="contact__section">
+            <h4 className="contact__section-title">Follow us</h4>
+            <div className="contact__socials">
+              <a href={festival.socials.rangam.url} target="_blank" rel="noreferrer" className="contact__social">
+                {festival.socials.rangam.handle}
+              </a>
+              <a href={festival.socials.dhwani.url} target="_blank" rel="noreferrer" className="contact__social">
+                {festival.socials.dhwani.handle}
+              </a>
+            </div>
+          </div>
         </div>
       </div>
     </section>

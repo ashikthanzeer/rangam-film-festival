@@ -74,11 +74,10 @@ export const festival = {
 
 export const navLinks = [
   { label: 'Home', href: '#top' },
-  { label: 'About', href: '#about' },
   { label: 'Competition', href: '#competition' },
   { label: 'Jury', href: '#jury' },
-  { label: 'Gallery', href: '#gallery' },
-  { label: 'Contact', href: '#contact' },
+  { label: 'About', href: '#about' },
+  { label: 'Reach Out', href: '#contact' },
 ]
 
 /* convenience alias so components can import competition data at top level */

@@ -3,7 +3,7 @@ import { SceneLayer } from '../SceneLayer.jsx'
 import { Sticker } from '../Sticker.jsx'
 import { festival, assets } from '../../data/festivalData.js'
 import { useParallax } from '../../hooks/useParallax.js'
-import { Star4Icon, ArrowRight, ArrowDown } from '../icons.jsx'
+import { ArrowDown } from '../icons.jsx'
 import './Hero.css'
 
 export function Hero() {
@@ -49,7 +49,7 @@ export function Hero() {
               />
               <span className="hero__org-text">
                 <small>In association with</small>
-                <strong>Dhwani ’26</strong>
+                <strong>Dhwani '26</strong>
               </span>
             </span>
           </div>
@@ -63,31 +63,14 @@ export function Hero() {
             height="1156"
           />
 
-          {/* Official festival dates — loud by design */}
+          {/* Official festival dates — designed as part of the composition */}
           <div className="hero__dates">
             <span className="hero__dates-month">September</span>
-            <span className="hero__dates-days">22 – 27</span>
-            <span className="hero__dates-year">2026</span>
+            <span className="hero__dates-days">22 — 27</span>
           </div>
-
-          <p className="hero__lede">{festival.lede}</p>
-
-          <div className="hero__cta">
-            <a href="#about" className="btn btn--yellow">
-              Explore the festival
-              <ArrowRight />
-            </a>
-          </div>
-
-          <p className="hero__meta">
-            <Star4Icon aria-hidden="true" />
-            <span>
-              {festival.venue.name} · {festival.venue.area}
-            </span>
-          </p>
         </div>
 
-        {/* The mascot — a main character in the scene */}
+        {/* The mascot — part of the hero composition */}
         <div className="hero__mascot-wrap">
           <img
             src={assets.mascot.front}
@@ -96,24 +79,13 @@ export function Hero() {
             width="900"
             height="1125"
           />
-          <div className="hero__bubble" aria-hidden="true">
-            So many films,
-            <br />
-            so little time!
-          </div>
         </div>
       </div>
 
-      <a href="#about" className="hero__scroll" aria-label="Scroll to About">
+      <a href="#competition" className="hero__scroll" aria-label="Scroll to Competition">
         <ArrowDown />
-        <span>Let’s go</span>
       </a>
 
-      <span className="hero__sticker" aria-hidden="true">
-        <Sticker tone="magenta" rotate={5}>
-          {festival.year}
-        </Sticker>
-      </span>
     </section>
   )
 }

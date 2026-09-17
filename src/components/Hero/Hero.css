@@ -40,12 +40,10 @@
   display: inline-flex;
   align-items: center;
   gap: 0.65rem;
-  border: 2px solid rgba(250, 192, 17, 0.55);
-  background: rgba(26, 13, 61, 0.62);
+  border: 2px solid rgba(250, 192, 17, 0.4);
+  background: rgba(26, 13, 61, 0.5);
   border-radius: 999px;
-  padding: 0.4rem 0.9rem 0.4rem 0.5rem;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
-  backdrop-filter: blur(5px);
+  padding: 0.35rem 0.85rem 0.35rem 0.45rem;
 }
 
 .hero__org-logo {
@@ -94,7 +92,8 @@
 
 /* ── the official Rangam wordmark ── */
 .hero__title {
-  width: min(100%, 720px);
+  width: min(100%, 1000px);
+  margin-inline: auto;
   filter: drop-shadow(0 14px 34px rgba(0, 0, 0, 0.45));
 }
 
@@ -109,9 +108,9 @@
 
 .hero__dates-month {
   font-weight: 800;
-  letter-spacing: 0.2em;
+  letter-spacing: 0.22em;
   text-transform: uppercase;
-  font-size: clamp(1rem, 1.9vw, 1.35rem);
+  font-size: clamp(1rem, 2vw, 1.5rem);
   color: var(--cyan);
   text-shadow: 0 2px 8px rgba(26, 13, 61, 0.9);
 }
@@ -119,7 +118,7 @@
 .hero__dates-days {
   font-family: var(--font-display);
   font-weight: 400;
-  font-size: clamp(2.7rem, 6.5vw, 4.5rem);
+  font-size: clamp(3.5rem, 8vw, 6rem);
   line-height: 0.9;
   color: var(--yellow);
   white-space: nowrap;
@@ -128,47 +127,9 @@
 
 .hero__dates-year {
   font-family: var(--font-display);
-  font-size: clamp(1.5rem, 3.2vw, 2.3rem);
+  font-size: clamp(2rem, 4vw, 3rem);
   color: var(--magenta);
   text-shadow: 0 2px 0 var(--indigo-ink), 0 4px 0 rgba(0, 0, 0, 0.32);
-}
-
-.hero__lede {
-  margin-top: var(--sp-5);
-  max-width: 52ch;
-  font-size: var(--fs-lead);
-  color: var(--cream);
-  opacity: 0.94;
-  text-shadow: 0 2px 10px rgba(26, 13, 61, 0.85);
-}
-
-.hero__cta {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: var(--sp-4);
-  margin-top: var(--sp-6);
-}
-
-.hero__meta {
-  display: inline-flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 0.5rem;
-  margin-top: var(--sp-6);
-  max-width: 100%;
-  font-size: var(--fs-small);
-  font-weight: 600;
-  color: var(--cream);
-  opacity: 0.92;
-  text-shadow: 0 1px 6px rgba(26, 13, 61, 0.9);
-}
-
-.hero__meta svg {
-  color: var(--yellow);
-  width: 1.05em;
-  height: 1.05em;
-  flex: none;
 }
 
 /* ---- mascot (right, foreground) ---- */
@@ -183,8 +144,8 @@
 }
 
 .hero__mascot {
-  width: min(100%, 430px);
-  max-height: 78svh;
+  width: min(100%, 400px);
+  max-height: 68svh;
   filter: drop-shadow(0 18px 26px rgba(0, 0, 0, 0.5));
 }
 
@@ -199,34 +160,6 @@
   border-radius: 50%;
   background: radial-gradient(ellipse at center, rgba(26, 13, 61, 0.65) 0%, transparent 70%);
   z-index: -1;
-}
-
-.hero__bubble {
-  position: absolute;
-  top: 6%;
-  left: -6%;
-  background: var(--paper);
-  color: var(--ink);
-  border: var(--stroke) solid var(--ink);
-  border-radius: 18px;
-  box-shadow: var(--pop-shadow-sm);
-  padding: 0.7rem 1rem;
-  font-weight: 700;
-  font-size: clamp(0.8rem, 1vw, 0.95rem);
-  line-height: 1.3;
-  transform: rotate(-4deg);
-  max-width: 190px;
-}
-
-/* speech-bubble tail */
-.hero__bubble::after {
-  content: '';
-  position: absolute;
-  bottom: -12px;
-  left: 22%;
-  border: 8px solid transparent;
-  border-top-color: var(--ink);
-  border-bottom: 0;
 }
 
 /* corner year sticker */
@@ -247,7 +180,6 @@
   transform: translateX(-50%);
   z-index: var(--z-deco);
   display: inline-flex;
-  flex-direction: column;
   align-items: center;
   gap: 0.35rem;
   color: var(--cream);
@@ -276,11 +208,7 @@
   }
 
   .hero__mascot {
-    width: min(100%, 360px);
-  }
-
-  .hero__bubble {
-    left: -12%;
+    width: min(100%, 300px);
   }
 }
 
@@ -300,8 +228,8 @@
   }
 
   .hero__mascot {
-    width: min(44vw, 280px);
-    max-height: 42svh;
+    width: min(42vw, 220px);
+    max-height: 38svh;
   }
 
   .hero__content {
@@ -310,28 +238,12 @@
   }
 
   .hero__content .hero__org,
-  .hero__content .hero__cta,
-  .hero__content .hero__meta,
   .hero__content .hero__dates {
-    justify-content: center;
-  }
-
-  .hero__lede {
-    margin-inline: auto;
-  }
-
-  .hero__meta {
     justify-content: center;
   }
 
   .hero__title {
     margin-inline: auto;
-  }
-
-  .hero__bubble {
-    left: auto;
-    right: -4%;
-    top: -16%;
   }
 
   .hero__scroll {
@@ -341,40 +253,16 @@
 
 @media (max-width: 520px) {
   .hero__mascot {
-    width: min(56vw, 230px);
+    width: min(48vw, 190px);
   }
 
   .hero__org {
     row-gap: 0.55rem;
   }
-
-  .hero__sticker {
-    display: none;
-  }
-
-  .hero__bubble {
-    max-width: 150px;
-    font-size: 0.78rem;
-    right: -8%;
-  }
-}
-
-@media (max-width: 420px) {
-  .hero__cta {
-    flex-direction: column;
-    align-items: stretch;
-    gap: var(--sp-3);
-  }
-
-  .hero__cta .btn {
-    width: 100%;
-    min-height: 46px;
-  }
 }
 
 @media (prefers-reduced-motion: reduce) {
   .hero__mascot-wrap,
-  .hero__sticker,
   .hero__scroll svg {
     animation: none;
   }

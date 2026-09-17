@@ -2,7 +2,6 @@ import { SceneLayer } from '../SceneLayer.jsx'
 import { SectionHeading } from '../SectionHeading.jsx'
 import { jury, festival } from '../../data/festivalData.js'
 import { useReveal } from '../../hooks/useReveal.js'
-import { Sticker } from '../Sticker.jsx'
 import { SparkIcon } from '../icons.jsx'
 import './Jury.css'
 
@@ -24,12 +23,6 @@ export function Jury() {
             <JuryCard key={member.name} member={member} index={i} />
           ))}
         </div>
-
-        <div className="jury__foot">
-          <Sticker tone="magenta" rotate={3}>
-            The bench is set
-          </Sticker>
-        </div>
       </div>
     </section>
   )
@@ -38,7 +31,7 @@ export function Jury() {
 function JuryCard({ member, index }) {
   const ref = useReveal()
   return (
-    <article ref={ref} className={`juror reveal juror--${index % 2 ? 'r' : 'l'}`} style={{ '--i': index }}>
+    <article ref={ref} className="juror reveal" style={{ '--i': index }}>
       <div className="juror__portrait">
         {member.image ? (
           <img src={member.image} alt={`${member.name}, ${member.role}`} className="juror__img" loading="lazy" />

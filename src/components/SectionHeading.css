@@ -13,6 +13,24 @@
   max-width: 52ch;
 }
 
+/* decorative underline swash */
+.section-head__title::after {
+  content: '';
+  display: block;
+  width: 84px;
+  height: 12px;
+  margin-top: 12px;
+  background: var(--yellow);
+  background-image: linear-gradient(-40deg, var(--ink) 0 22%, transparent 22% 40%, var(--ink) 40% 58%, transparent 58% 78%, var(--ink) 78% 100%);
+  border: 2px solid var(--ink);
+  transform: rotate(-1.5deg);
+  border-radius: 3px;
+}
+
+.section-head--center .section-head__title::after {
+  margin-inline: auto;
+}
+
 .section-head__title {
   font-size: var(--fs-h2);
   text-transform: uppercase;
@@ -40,6 +58,7 @@
   text-shadow: 2px 2px 0 var(--yellow);
 }
 
+/* 'dark' tone is used on light paper sections */
 .section-head--dark .section-head__title {
   color: var(--ink);
 }
@@ -49,9 +68,13 @@
   text-shadow: 2px 2px 0 var(--yellow);
 }
 
+.section-head--dark .section-head__title::after {
+  background: var(--maroon);
+}
+
 .section-head--dark .eyebrow {
-  background: var(--magenta);
-  color: #fff;
+  color: var(--maroon);
+  background: none;
 }
 
 .section-head__note {
@@ -66,20 +89,23 @@
   color: var(--ink-soft);
 }
 
-/* decorative underline swash */
-.section-head__title::after {
-  content: '';
-  display: block;
-  width: 84px;
-  height: 12px;
-  margin-top: 10px;
-  background: var(--yellow);
-  background-image: linear-gradient(-40deg, var(--ink) 0 22%, transparent 22% 40%, var(--ink) 40% 58%, transparent 58% 78%, var(--ink) 78% 100%);
-  border: 2px solid var(--ink);
-  transform: rotate(-1.5deg);
-  border-radius: 3px;
+.eyebrow {
+  display: inline-block;
+  font-size: var(--fs-tiny);
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--cream);
+  margin-bottom: var(--sp-3);
 }
 
-.section-head--center .section-head__title::after {
-  margin-inline: auto;
+.section-head--dark .eyebrow {
+  color: var(--maroon);
+  background: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .section-head__title::after {
+    transform: rotate(-1.5deg);
+  }
 }
