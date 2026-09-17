@@ -42,15 +42,14 @@ export function Hero() {
               ✦
             </span>
             <span className="hero__org-badge">
+              <span className="hero__org-text">
+                <small>In association with</small>
+              </span>
               <img
                 src={assets.logos.dhwani}
                 alt=""
                 className="hero__org-logo hero__org-logo--dhwani"
               />
-              <span className="hero__org-text">
-                <small>In association with</small>
-                <strong>Dhwani '26</strong>
-              </span>
             </span>
           </div>
 
