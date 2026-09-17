@@ -1,0 +1,143 @@
+/* ============================================================
+   RANGAM FILM FESTIVAL — Design tokens
+   Colours are extracted from the official artwork in /public/assets
+   (see public/assets/elements/*.svg and public/assets/mascot/*.svg)
+   ============================================================ */
+
+@font-face {
+  font-family: 'Galavant';
+  src: url('../assets/fonts/Galavant-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Poppins';
+  src: url('../assets/fonts/Poppins-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Poppins';
+  src: url('../assets/fonts/Poppins-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Poppins';
+  src: url('../assets/fonts/Poppins-SemiBold.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Poppins';
+  src: url('../assets/fonts/Poppins-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Poppins';
+  src: url('../assets/fonts/Poppins-ExtraBold.ttf') format('truetype');
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ------------------------------------------------------------
+   Colour tokens (from artwork)
+   ------------------------------------------------------------ */
+:root {
+  /* brand yellows / golds */
+  --yellow: #fac011;
+  --yellow-bright: #ffd556;
+  --yellow-deep: #d8950b;
+  --gold-dark: #b08503;
+
+  /* brand magentas */
+  --magenta: #ff0076;
+  --magenta-deep: #94164f;
+  --maroon: #ad1f61;
+  --maroon-mid: #c8437f;
+
+  /* brand indigos */
+  --indigo: #5551aa;
+  --indigo-mid: #7c77c2;
+  --indigo-deep: #3e3a56;
+  --indigo-night: #24134c;
+  --indigo-ink: #1a0d3d;
+
+  /* accent cyan */
+  --cyan: #49c8eb;
+  --cyan-deep: #1e6376;
+
+  /* neutrals */
+  --ink: #2b1030; /* comic outline / deep text */
+  --ink-soft: #4a2445;
+  --cream: #f6ecd4;
+  --paper: #fbf3e1;
+  --white: #ffffff;
+  --yellowish: #fff3c4;
+  --peach: #efc7a5;
+  --teal-mascot: #6ea09d;
+
+  /* typography */
+  --font-display: 'Galavant', 'Poppins', system-ui, sans-serif;
+  --font-body: 'Poppins', system-ui, sans-serif;
+
+  --fs-h1: clamp(2.6rem, 6vw, 4.75rem);
+  --fs-h2: clamp(2rem, 4.4vw, 3.25rem);
+  --fs-h3: clamp(1.25rem, 2.2vw, 1.6rem);
+  --fs-lead: clamp(1.02rem, 1.6vw, 1.25rem);
+  --fs-body: clamp(0.94rem, 1.1vw, 1rem);
+  --fs-small: clamp(0.78rem, 0.9vw, 0.86rem);
+  --fs-tiny: 0.72rem;
+
+  /* spacing scale */
+  --sp-1: 0.25rem;
+  --sp-2: 0.5rem;
+  --sp-3: 0.75rem;
+  --sp-4: 1rem;
+  --sp-5: 1.5rem;
+  --sp-6: 2rem;
+  --sp-7: 3rem;
+  --sp-8: 4rem;
+  --sp-9: 6rem;
+  --sp-10: 8rem;
+
+  /* comic UI */
+  --stroke: 3px;
+  --stroke-thin: 2px;
+  --pop-shadow: 6px 6px 0 var(--ink);
+  --pop-shadow-sm: 3px 3px 0 var(--ink);
+  --sticker-shadow: 2px 2px 0 var(--ink);
+  --radius-sm: 8px;
+  --radius: 16px;
+  --radius-lg: 24px;
+  --halftone-dot: #ffffff1f;
+
+  /* layered composition (background -> content -> foreground) */
+  --z-bg: 0;
+  --z-far: 1;
+  --z-mid: 2;
+  --z-content: 5;
+  --z-deco: 6;
+  --z-front: 8;
+  --z-mascot: 9;
+  --z-nav: 50;
+  --z-overlay: 60;
+
+  /* motion */
+  --ease-pop: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --dur-fast: 180ms;
+  --dur: 320ms;
+  --dur-slow: 700ms;
+}

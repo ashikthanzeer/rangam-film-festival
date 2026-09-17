@@ -1,0 +1,163 @@
+/* ============================================================
+   ANIMATIONS — shared keyframes
+   Respects prefers-reduced-motion at the bottom.
+   ============================================================ */
+
+@keyframes float-bob {
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-12px) rotate(-0.6deg);
+  }
+}
+
+@keyframes float-bob-soft {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+@keyframes spin-slow {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes rock {
+  0%,
+  100% {
+    transform: rotate(-1.6deg);
+  }
+  50% {
+    transform: rotate(1.6deg);
+  }
+}
+
+@keyframes sway {
+  0%,
+  100% {
+    transform: rotate(-2.2deg);
+  }
+  50% {
+    transform: rotate(2.2deg);
+  }
+}
+
+@keyframes drift {
+  0% {
+    transform: translateX(-2.5%);
+  }
+  100% {
+    transform: translateX(2.5%);
+  }
+}
+
+@keyframes twinkle {
+  0%,
+  100% {
+    opacity: 0.25;
+    transform: scale(0.7) rotate(0deg);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.15) rotate(18deg);
+  }
+}
+
+@keyframes marquee-x {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes pop-in {
+  0% {
+    opacity: 0;
+    transform: translateY(26px) scale(0.96);
+  }
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes bounce-down {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(9px);
+  }
+}
+
+@keyframes pulse-ring {
+  0% {
+    opacity: 0.7;
+    transform: scale(0.9);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.6);
+  }
+}
+
+@keyframes blob-pan {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 220px 0;
+  }
+}
+
+/* hero entrance helper (JS adds data-anim="ready" when mounted) */
+.hero-anim > * {
+  opacity: 0;
+}
+
+.hero-anim[data-anim='ready'] > * {
+  animation: pop-in 0.75s var(--ease-pop) both;
+}
+
+.hero-anim[data-anim='ready'] > *:nth-child(1) {
+  animation-delay: 80ms;
+}
+.hero-anim[data-anim='ready'] > *:nth-child(2) {
+  animation-delay: 200ms;
+}
+.hero-anim[data-anim='ready'] > *:nth-child(3) {
+  animation-delay: 320ms;
+}
+.hero-anim[data-anim='ready'] > *:nth-child(4) {
+  animation-delay: 440ms;
+}
+.hero-anim[data-anim='ready'] > *:nth-child(5) {
+  animation-delay: 560ms;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001s !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001s !important;
+  }
+
+  .hero-anim > * {
+    opacity: 1;
+  }
+
+  .ghost-word,
+  .halftone,
+  .speedlines {
+    animation: none !important;
+  }
+}

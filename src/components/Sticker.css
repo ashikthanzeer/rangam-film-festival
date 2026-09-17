@@ -1,0 +1,65 @@
+@import '../styles/tokens.css';
+
+/*
+  Comic sticker badge — a rotated pill with spark accents.
+  Used purely as a decorative accent across sections.
+*/
+.sticker {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.55rem 1.1rem;
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  line-height: 1;
+  color: var(--ink);
+  text-transform: uppercase;
+  border-radius: 999px;
+  border: 2px solid var(--ink);
+  box-shadow: var(--sticker-shadow);
+  background: var(--yellow);
+  transform: rotate(var(--rot, -3deg));
+  white-space: nowrap;
+  transition: transform var(--dur-fast) var(--ease-pop);
+}
+
+.sticker:hover {
+  transform: rotate(0deg) translateY(-2px);
+}
+
+.sticker--small {
+  font-size: 0.78rem;
+  padding: 0.45rem 0.85rem;
+  gap: 0.4rem;
+}
+
+.sticker svg {
+  flex: 0 0 auto;
+}
+
+.sticker--yellow {
+  background: var(--yellow);
+  color: var(--ink);
+}
+
+.sticker--magenta {
+  background: var(--magenta);
+  color: #fff;
+}
+
+.sticker--cyan {
+  background: var(--cyan);
+  color: var(--ink);
+}
+
+.sticker--white {
+  background: var(--white);
+  color: var(--ink);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sticker,
+  .sticker:hover {
+    transform: rotate(var(--rot, -3deg));
+  }
+}

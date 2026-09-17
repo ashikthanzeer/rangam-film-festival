@@ -1,0 +1,232 @@
+@import '../../styles/tokens.css';
+
+/* ============================================================
+   NAVBAR — festival signage, not a generic navbar
+   ============================================================ */
+
+.nav {
+  position: fixed;
+  inset-inline: 0;
+  top: 0;
+  z-index: var(--z-nav);
+}
+
+.nav__bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sp-4);
+  padding: 0.65rem clamp(1rem, 3vw, 2.25rem);
+  transition: background-color var(--dur), box-shadow var(--dur);
+}
+
+.nav--scrolled .nav__bar {
+  background: rgba(26, 13, 61, 0.92);
+  backdrop-filter: blur(6px);
+  box-shadow: 0 2px 0 rgba(250, 192, 17, 0.35), 0 10px 30px rgba(0, 0, 0, 0.35);
+}
+
+.nav__brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
+  min-width: 0;
+}
+
+.nav__logo {
+  width: clamp(118px, 15vw, 190px);
+  filter: drop-shadow(2px 2px 0 rgba(0, 0, 0, 0.45));
+}
+
+.nav__brandtext {
+  font-size: var(--fs-tiny);
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--yellow);
+  border-left: 2px solid rgba(255, 213, 86, 0.5);
+  padding-left: 0.8rem;
+  white-space: nowrap;
+}
+
+.nav__links {
+  display: none;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.nav__link {
+  position: relative;
+  display: inline-block;
+  padding: 0.5rem 0.8rem;
+  font-size: var(--fs-small);
+  font-weight: 600;
+  color: var(--cream);
+  letter-spacing: 0.05em;
+  border-radius: 8px;
+  transition: color var(--dur-fast);
+}
+
+.nav__link::after {
+  content: '';
+  position: absolute;
+  left: 0.8rem;
+  right: 0.8rem;
+  bottom: 0.18rem;
+  height: 3px;
+  background: var(--magenta);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--dur-fast) var(--ease-pop);
+}
+
+.nav__link:hover {
+  color: var(--yellow);
+}
+
+.nav__link:hover::after {
+  transform: scaleX(1);
+}
+
+.nav__actions {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.nav__burger {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border: 2px solid var(--paper);
+  border-radius: 12px;
+  color: var(--paper);
+  font-size: 1.3rem;
+  background: rgba(26, 13, 61, 0.5);
+  transition: background-color var(--dur-fast), transform var(--dur-fast) var(--ease-pop);
+}
+
+.nav__burger:hover {
+  background: var(--magenta);
+  transform: rotate(6deg);
+}
+
+/* ---------- mobile overlay ---------- */
+.nav__overlay {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background: var(--indigo-ink);
+  color: var(--paper);
+  transform: translateY(-101%);
+  transition: transform 0.5s var(--ease-pop);
+  visibility: hidden;
+  overflow: auto;
+}
+
+.nav__overlay--open {
+  transform: translateY(0);
+  visibility: visible;
+}
+
+.nav__overlay-bg {
+  position: absolute;
+  inset: 0;
+  opacity: 0.5;
+}
+
+.nav__overlay-inner {
+  position: relative;
+  display: grid;
+  min-height: 100dvh;
+  place-content: center;
+  gap: var(--sp-6);
+  padding: 6rem 1.5rem 3rem;
+  text-align: center;
+}
+
+.nav__overlay-links {
+  display: grid;
+  gap: 0.1rem;
+}
+
+.nav__overlay-link {
+  position: relative;
+  display: inline-flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 0.7rem;
+  font-family: var(--font-display);
+  font-size: clamp(2.2rem, 9vw, 3.4rem);
+  line-height: 1.25;
+  color: var(--cream);
+  padding: 0.15rem 0.5rem;
+  opacity: 0;
+  transform: translateY(18px);
+  transition: color var(--dur-fast), opacity 0.4s ease, transform 0.4s var(--ease-pop);
+  transition-delay: calc(var(--i) * 40ms);
+}
+
+.nav__overlay--open .nav__overlay-link {
+  opacity: 1;
+  transform: none;
+}
+
+.nav__overlay-link:hover {
+  color: var(--yellow);
+}
+
+.nav__overlay-num {
+  font-family: var(--font-body);
+  font-size: var(--fs-tiny);
+  font-weight: 800;
+  color: var(--magenta);
+  letter-spacing: 0.2em;
+}
+
+.nav__overlay-mascot {
+  width: min(200px, 34vw);
+  margin: 0 auto;
+  opacity: 0.9;
+  animation: float-bob-soft 5s ease-in-out infinite;
+  filter: drop-shadow(0 10px 18px rgba(0, 0, 0, 0.5));
+}
+
+.nav__overlay-foot {
+  font-size: var(--fs-tiny);
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--cream);
+  opacity: 0.65;
+}
+
+/* ---------- breakpoints ---------- */
+@media (min-width: 1024px) {
+  .nav__links {
+    display: flex;
+  }
+
+  .nav__burger {
+    display: none;
+  }
+}
+
+@media (max-width: 520px) {
+  .nav__brandtext {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .nav__overlay {
+    transition: none;
+  }
+
+  .nav__overlay-link {
+    transition: none;
+    opacity: 1;
+    transform: none;
+  }
+}

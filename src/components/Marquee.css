@@ -1,0 +1,74 @@
+.marquee {
+  position: relative;
+  overflow: hidden;
+  padding-block: 0.7rem;
+  border-block: 3px solid var(--ink);
+  z-index: 2;
+}
+
+.marquee--yellow {
+  background: var(--yellow);
+  color: var(--ink);
+  transform: rotate(1.2deg) scale(1.02);
+}
+
+.marquee--magenta {
+  background: var(--magenta);
+  color: #fff;
+  transform: rotate(-1.3deg) scale(1.02);
+}
+
+.marquee--cyan {
+  background: var(--cyan);
+  color: var(--ink);
+  transform: rotate(-1.3deg) scale(1.02);
+}
+
+.marquee--dark {
+  background: var(--ink);
+  color: var(--yellow);
+  border-color: var(--yellow);
+}
+
+.marquee__track {
+  display: flex;
+  width: max-content;
+  animation: marquee-x 26s linear infinite;
+}
+
+.marquee__group {
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+}
+
+.marquee__item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.85rem;
+  font-weight: 800;
+  font-size: clamp(0.95rem, 1.6vw, 1.25rem);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  padding-inline: 1.1rem;
+}
+
+.marquee__star {
+  color: var(--magenta);
+  font-size: 0.8em;
+}
+
+.marquee--magenta .marquee__star {
+  color: var(--yellow);
+}
+
+.marquee--dark .marquee__star {
+  color: var(--cyan);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee__track {
+    animation: none;
+    flex-wrap: wrap;
+  }
+}

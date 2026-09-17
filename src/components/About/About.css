@@ -1,0 +1,161 @@
+@import '../../styles/tokens.css';
+
+/* ketchup-style overflow guard: keep decorative > 100vw out of layout */
+.about {
+  overflow: hidden;
+}
+
+.about__tex {
+  position: absolute;
+  inset: 0;
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.about__grid {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+  gap: clamp(2.5rem, 6vw, 5rem);
+  align-items: center;
+}
+
+.about__copy p {
+  color: var(--ink-soft);
+  margin-bottom: var(--sp-4);
+  max-width: 58ch;
+}
+
+.about__copy em {
+  font-style: normal;
+  font-weight: 700;
+  color: var(--maroon);
+}
+
+.about__drop {
+  font-size: var(--fs-lead);
+  color: var(--ink) !important;
+  font-weight: 500;
+}
+
+.about__dropcap {
+  float: left;
+  font-family: var(--font-display);
+  font-size: 4.6rem;
+  line-height: 0.78;
+  margin: 0.1em 0.14em 0 0;
+  color: var(--magenta);
+  text-shadow: 2px 2px 0 var(--yellow);
+}
+
+.about__chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin: var(--sp-5) 0 var(--sp-5);
+}
+
+.about__chip {
+  display: inline-block;
+  padding: 0.4rem 0.95rem;
+  font-size: var(--fs-small);
+  font-weight: 700;
+  background: var(--white);
+  color: var(--ink);
+  border: 2px solid var(--ink);
+  border-radius: 999px;
+  box-shadow: 2px 2px 0 var(--ink);
+  transform: rotate(var(--rot, 0deg));
+  transition: transform var(--dur-fast) var(--ease-pop), background-color var(--dur-fast);
+}
+
+.about__chip:hover {
+  transform: translateY(-3px) rotate(var(--rot, 0deg));
+  background: var(--yellow);
+}
+
+/* ---- artwork column ---- */
+
+.about__art {
+  position: relative;
+  /* breathing room for the rotated stamps around the poster */
+  padding-block: var(--sp-6);
+}
+
+.about__poster {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+  width: min(100%, 460px);
+  margin-inline: auto;
+  transform: rotate(-1.2deg);
+}
+
+.about__poster img {
+  aspect-ratio: 5/4;
+  object-fit: cover;
+  width: 100%;
+}
+
+.about__poster figcaption {
+  padding: 0.7rem 1rem;
+  font-size: var(--fs-small);
+  font-weight: 600;
+  color: var(--ink);
+  background: var(--yellow);
+  border-top: 3px solid var(--ink);
+}
+
+.about__stamp {
+  position: absolute;
+  top: 0;
+  left: -2%;
+  z-index: 2;
+  animation: float-bob-soft 6s ease-in-out infinite;
+}
+
+.about__mask {
+  position: absolute;
+  right: -4%;
+  bottom: -3%;
+  width: clamp(96px, 12vw, 150px);
+  opacity: 0.95;
+  transform: rotate(8deg);
+  filter: drop-shadow(0 8px 14px rgba(0, 0, 0, 0.3));
+  z-index: 2;
+}
+
+@media (max-width: 960px) {
+  .about__grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .about__art {
+    order: -1;
+  }
+
+  .about__poster {
+    max-width: 420px;
+  }
+}
+
+@media (max-width: 480px) {
+  .about__mask {
+    width: 84px;
+  }
+
+  .about__stamp {
+    left: 0;
+  }
+
+  .about__dropcap {
+    font-size: 3.6rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .about__stamp {
+    animation: none;
+  }
+}
