@@ -51,10 +51,36 @@
 
 @keyframes drift {
   0% {
-    transform: translateX(-2.5%);
+    transform: translate(calc(-50% - 2.5vw), 0);
   }
   100% {
-    transform: translateX(2.5%);
+    transform: translate(calc(-50% + 2.5vw), 0);
+  }
+}
+
+/* gentle lateral drift for the hero cloud layer (keeps its tilt) */
+@keyframes hero-cloud-drift {
+  0% {
+    transform: translateX(calc(-50% - 2vw)) rotate(-4deg);
+  }
+  100% {
+    transform: translateX(calc(-50% + 2vw)) rotate(-4deg);
+  }
+}
+
+/* mobile variant of the hero cloud drift */
+@keyframes hero-cloud-drift-sm {
+  0% {
+    transform: translateX(calc(-50% - 2vw)) rotate(-3deg);
+  }
+  100% {
+    transform: translateX(calc(-50% + 2vw)) rotate(-3deg);
+  }
+}
+
+@keyframes film-crawl {
+  to {
+    transform: translateX(-50%);
   }
 }
 
@@ -157,7 +183,8 @@
 
   .ghost-word,
   .halftone,
-  .speedlines {
+  .speedlines,
+  .hero__filmstrip__track {
     animation: none !important;
   }
 }

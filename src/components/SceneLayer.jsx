@@ -18,17 +18,18 @@ const SPARKS = [
  * Every decorative element is aria-hidden; real data rides in the content layer.
  *
  * variant:
- *  - "hero"   : full night scene with clouds, ferris wheel, torii, lantern, bunting
+ *  - "hero"   : restrained night scene — sky, sparse sparks, cloud band,
+ *               lantern; the heavy carnival props stay out so the hero reads
+ *               as a film-festival poster
  *  - "clouds" : gentle drifting cloud bands + stars for interior sections
  */
 export function SceneLayer({ variant = 'hero' }) {
-  const sparks = useMemo(
-    () =>
-      variant === 'hero'
-        ? SPARKS
-        : SPARKS.map((s) => ({ ...s, x: (s.x * 37 + 11) % 96, y: (s.y * 53 + 7) % 92 })),
-    [variant],
-  )
+  const sparks = useMemo(() => {
+    if (variant !== 'hero') {
+      return SPARKS.map((s) => ({ ...s, x: (s.x * 37 + 11) % 96, y: (s.y * 53 + 7) % 92 }))
+    }
+    return SPARKS.slice(0, 6)
+  }, [variant])
 
   return (
     <div className={`scene scene--${variant}`} aria-hidden="true">
@@ -55,24 +56,30 @@ export function SceneLayer({ variant = 'hero' }) {
       {/* drifting cloud band (bottom) */}
       <img src="/assets/web/clouds.png" alt="" className="scene__clouds" loading="eager" />
 
-      {/* ferris wheel */}
-      <img src="/assets/web/ferris.png" alt="" className="scene__ferris" loading="lazy" />
-
-      {/* torii gate */}
-      <img src="/assets/elements/torii%20new.svg" alt="" className="scene__torii" loading="lazy" />
-
       {/* hanging lantern */}
       <img src="/assets/web/lantern.png" alt="" className="scene__lantern" loading="lazy" />
 
-      {/* floating notes */}
-      <img src="/assets/elements/note.svg" alt="" className="scene__note scene__note--a" loading="lazy" />
-      <img src="/assets/elements/blue%20note.svg" alt="" className="scene__note scene__note--b" loading="lazy" />
+      {/* carnival props kept for the interior sections — the hero is a
+          cinema scene, so these stay out of it */}
+      {variant !== 'hero' && (
+        <>
+          {/* ferris wheel */}
+          <img src="/assets/web/ferris.png" alt="" className="scene__ferris" loading="lazy" />
 
-      {/* festival bunting flags */}
-      <img src="/assets/elements/L1.svg" alt="" className="scene__flag scene__flag--1" loading="lazy" />
-      <img src="/assets/elements/L2.svg" alt="" className="scene__flag scene__flag--2" loading="lazy" />
-      <img src="/assets/elements/L3.svg" alt="" className="scene__flag scene__flag--3" loading="lazy" />
-      <img src="/assets/elements/L4.svg" alt="" className="scene__flag scene__flag--4" loading="lazy" />
+          {/* torii gate */}
+          <img src="/assets/elements/torii%20new.svg" alt="" className="scene__torii" loading="lazy" />
+
+          {/* floating notes */}
+          <img src="/assets/elements/note.svg" alt="" className="scene__note scene__note--a" loading="lazy" />
+          <img src="/assets/elements/blue%20note.svg" alt="" className="scene__note scene__note--b" loading="lazy" />
+
+          {/* festival bunting flags */}
+          <img src="/assets/elements/L1.svg" alt="" className="scene__flag scene__flag--1" loading="lazy" />
+          <img src="/assets/elements/L2.svg" alt="" className="scene__flag scene__flag--2" loading="lazy" />
+          <img src="/assets/elements/L3.svg" alt="" className="scene__flag scene__flag--3" loading="lazy" />
+          <img src="/assets/elements/L4.svg" alt="" className="scene__flag scene__flag--4" loading="lazy" />
+        </>
+      )}
     </div>
   )
 }

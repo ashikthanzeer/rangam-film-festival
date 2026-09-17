@@ -35,8 +35,9 @@
   opacity: 0.55;
 }
 
-.scene__speedlines {
-  opacity: 0.14;
+.scene--hero .scene__speedlines {
+  /* diagonal lines are texture only — never the primary visual */
+  opacity: 0.06;
 }
 
 /* stars */
@@ -48,19 +49,20 @@
   animation: twinkle 3.6s ease-in-out infinite;
 }
 
-/* cloud band hugging the bottom */
+/* cloud band hugging the bottom — anchored to the scene, cropped by the
+   leading edge on either side. object-position keeps the illustration's
+   own cloud banks (top rows of the artwork) in frame instead of its empty
+   middle rows. */
 .scene__clouds {
   position: absolute;
   left: 50%;
   bottom: 0;
-  width: 118%;
-  min-width: 1500px;
+  width: max(110%, 900px);
+  height: auto;
   transform: translateX(-50%);
-  animation: drift 18s ease-in-out infinite alternate;
-}
-
-.scene__clouds img {
-  width: 100%;
+  object-fit: contain;
+  object-position: center bottom;
+  animation: drift 20s ease-in-out infinite alternate;
 }
 
 /* ferris wheel */
@@ -184,6 +186,10 @@
 }
 
 @media (max-width: 768px) {
+  .scene__clouds {
+    height: clamp(280px, 36vh, 440px);
+  }
+
   .scene__torii {
     width: clamp(120px, 22vw, 170px);
     right: -3%;
@@ -207,6 +213,12 @@
 }
 
 @media (max-width: 480px) {
+  .scene__clouds {
+    width: max(100%, 1200px);
+    height: clamp(200px, 30vh, 320px);
+    object-position: 50% 8%;
+  }
+
   .scene__torii {
     display: none;
   }
@@ -218,10 +230,6 @@
   .scene__note--b {
     display: none;
   }
-
-  .scene__clouds {
-    min-width: 1200px;
-  }
 }
 
 @media (max-width: 380px) {
@@ -232,5 +240,70 @@
   .scene__lantern {
     width: 54px;
     top: 16%;
+  }
+}
+
+/* ============================================================
+   HERO VARIANT — intentionally restrained.
+   CLOUDS.svg is ONE composition (a single embedded raster), so it is
+   used as ONE large scenery layer, not cropped into a full-width
+   band. The artwork holds two cloud clusters in its upper area;
+   the layer is top-anchored and tilted so the left cluster rides
+   up off the viewport while the right cluster drifts down behind
+   the mascot. Natural proportions are preserved (width only →
+   height auto) and the transparent lower half of the artwork keeps
+   the poster typography clean. Keep the base rules above untouched
+   so interior "clouds" sections stay exactly as they are.
+   ============================================================ */
+
+.scene--hero .scene__clouds {
+  position: absolute;
+  top: -10vh;
+  right: auto;
+  bottom: auto;
+  left: 50%;
+  width: max(126%, 1500px);
+  height: auto;
+  transform: translateX(-50%) rotate(-4deg);
+  object-position: initial;
+  opacity: 0.92;
+  /* soften the clusters' lower edge so they never hard-clip against
+     the logo / dates — the artwork fades out before content begins */
+  -webkit-mask-image: linear-gradient(to bottom, #000 40%, rgba(0, 0, 0, 0.6) 58%, transparent 72%);
+  mask-image: linear-gradient(to bottom, #000 40%, rgba(0, 0, 0, 0.6) 58%, transparent 72%);
+  animation: hero-cloud-drift 34s ease-in-out infinite alternate;
+}
+
+/* single cultural anchor for the hero — a small lantern, top-left,
+   away from the mascot on the right */
+.scene--hero .scene__lantern {
+  top: 13%;
+  right: auto;
+  left: 4%;
+  width: clamp(52px, 5.5vw, 84px);
+  opacity: 0.85;
+}
+
+@media (max-width: 768px) {
+  /* mobile: a much smaller layer tucked behind the stacked
+     composition — it never dominates the viewport */
+  .scene--hero .scene__clouds {
+    top: 0;
+    width: 150%;
+    transform: translateX(-50%) rotate(-3deg);
+    opacity: 0.78;
+    animation: hero-cloud-drift-sm 30s ease-in-out infinite alternate;
+  }
+}
+
+@media (max-width: 480px) {
+  .scene--hero .scene__clouds {
+    width: 145%;
+    top: -2%;
+    opacity: 0.7;
+  }
+
+  .scene--hero .scene__lantern {
+    display: none;
   }
 }

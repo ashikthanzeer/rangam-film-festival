@@ -238,6 +238,8 @@ export const assets = {
     judge2: '/assets/web/judge-2.png',
     khaiAuto: '/assets/web/khai-auto.png',
     khaiFull: '/assets/web/khai-full.png',
+    /* original full-res mascot artwork (director's chair scene) */
+    khaiFullCopy: '/assets/mascot/khai%20full%20copy.png',
     mask: '/assets/mascot/mascot%20mask.svg',
   },
   logos: {
