@@ -34,9 +34,9 @@
 }
 
 .nav__logo {
-  height: clamp(34px, 5vh, 46px);
-  width: auto;
-  filter: drop-shadow(2px 2px 0 rgba(0, 0, 0, 0.45));
+  height: 52px !important;
+  width: auto !important;
+  display: block;
 }
 
 .nav__links {
@@ -225,7 +225,7 @@
   }
 
   .nav__logo {
-    height: 30px;
+    height: 40px !important;
   }
 
   .nav__actions {

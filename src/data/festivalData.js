@@ -44,7 +44,7 @@ export const festival = {
     title: 'Rangam Short Film Competition',
     prize: '₹75,000',
     registrationFee: '₹699',
-    deadline: 'September 17, 2026',
+    deadline: 'September 22, 2026',
     /* OFFICIAL registration gateway (supplied link, used as-is) */
     registrationUrl: 'https://makemypass.com/event/rangam-short-film-competition',
     /* OFFICIAL: paste the real guidelines URL here when shared.
