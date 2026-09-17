@@ -23,7 +23,7 @@ export const festival = {
     name: 'College of Engineering Trivandrum',
     area: 'Sreekariyam, Thiruvananthapuram, Kerala',
     /* OFFICIAL: link to a map / venue page once published */
-    mapUrl: null,
+    mapUrl: 'https://maps.app.goo.gl/DLWnMcTaZgPrphmX6',
   },
   contact: {
     email: 'rangam@dhwani.org',
@@ -50,7 +50,7 @@ export const festival = {
     /* OFFICIAL: paste the real guidelines URL here when shared.
        Keep `null` until then — the UI shows a "coming soon"
        placeholder and does NOT navigate to an unrelated page. */
-    guidelinesUrl: null,
+    guidelinesUrl: 'https://www.instagram.com/p/Dc8x8EtFGp8/?stkn=bjVmZm1iazgxMnZs',
     contacts: [
       { name: 'Sisira', phone: '9544758104', tel: 'tel:9544758104' },
       { name: 'Afwan', phone: '9847910308', tel: 'tel:9847910308' },
