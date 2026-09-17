@@ -25,7 +25,7 @@ export function Competition() {
         <div ref={contentRef} className="competition__canvas reveal">
           <div className="competition__main">
             <p className="competition__intro">
-              {comp.title} — entries close {comp.deadline}. The festival itself runs {festival.dates}.
+              {comp.title} — entries close {comp.deadline}.
             </p>
 
             <div className="competition__cta-row">
