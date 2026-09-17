@@ -22,7 +22,7 @@ export function Contact() {
           title="Reach "
           kicker="out"
           tone="dark"
-          note={`Questions, films, ideas or partnerships — the Rangam desk at ${festival.edition} reads everything.`}
+          note={`Questions, films, ideas or partnerships — the Rangam desk at ${festival.year} reads everything.`}
         />
 
         <div ref={ref} className="contact__card reveal">
@@ -42,21 +42,21 @@ export function Contact() {
             </span>
           </a>
 
-          <a className="contact__item" href={festival.socials.instagram} target="_blank" rel="noreferrer">
+          <a className="contact__item" href={festival.socials.rangam.url} target="_blank" rel="noreferrer">
             <span className="contact__icon"><InstagramIcon /></span>
             <span className="contact__meta">
               <small>Follow the fest</small>
-              @rangam · {festival.socials.instagram.replace(/^https?:\/\//, '').replace(/\/$/, '')}
+              {festival.socials.rangam.handle}
             </span>
           </a>
 
-          <div className="contact__item">
+          <a className="contact__item" href="#competition">
             <span className="contact__icon"><TicketIcon /></span>
             <span className="contact__meta">
-              <small>Registrations</small>
-              Opening soon
+              <small>Registrations · {festival.shortFilmCompetition.registrationFee}</small>
+              {festival.shortFilmCompetition.title}
             </span>
-          </div>
+          </a>
 
           <Sticker tone="magenta" rotate={5} className="contact__stamp">
             Full speed ahead

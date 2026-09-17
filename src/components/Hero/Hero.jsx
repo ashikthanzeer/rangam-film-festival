@@ -3,13 +3,12 @@ import { SceneLayer } from '../SceneLayer.jsx'
 import { Sticker } from '../Sticker.jsx'
 import { festival, assets } from '../../data/festivalData.js'
 import { useParallax } from '../../hooks/useParallax.js'
-import { ArrowRight, ArrowDown, TicketIcon, Star4Icon } from '../icons.jsx'
+import { Star4Icon, ArrowRight, ArrowDown } from '../icons.jsx'
 import './Hero.css'
 
 export function Hero() {
   const [ready, setReady] = useState(false)
   const parallaxRef = useParallax(0.12)
-  const regUrl = festival.registration.url ?? '#'
 
   useEffect(() => {
     const t = window.setTimeout(() => setReady(true), 60)
@@ -22,19 +21,54 @@ export function Hero() {
 
       <div ref={parallaxRef} className="hero__inner container">
         <div className="hero__content hero-anim" data-anim={ready ? 'ready' : ''}>
-          <p className="hero__kicker">
-            <span className="hero__kicker-dot" aria-hidden="true" />
-            {festival.edition} Presents · {festival.college}
-          </p>
+          {/* ── OFFICIAL branding hierarchy ──
+              Rangam Film Festival · conducted by CET Film Society ·
+              in association with Dhwani '26 */}
+          <div className="hero__org">
+            <span className="hero__org-badge">
+              <img
+                src={assets.logos.cetFilmSociety}
+                alt=""
+                className="hero__org-logo hero__org-logo--cet"
+                width="118"
+                height="130"
+              />
+              <span className="hero__org-text">
+                <small>Conducted by</small>
+                <strong>CET Film Society</strong>
+              </span>
+            </span>
+            <span className="hero__org-sep" aria-hidden="true">
+              ✦
+            </span>
+            <span className="hero__org-badge">
+              <img
+                src={assets.logos.dhwani}
+                alt=""
+                className="hero__org-logo hero__org-logo--dhwani"
+              />
+              <span className="hero__org-text">
+                <small>In association with</small>
+                <strong>Dhwani ’26</strong>
+              </span>
+            </span>
+          </div>
 
-          {/* Official Rangam festival title artwork */}
+          {/* The official Rangam Film Festival logo — primary identity */}
           <img
-            src={assets.logos.rangamTitle}
+            src={assets.logos.rangamWeb}
             alt="Rangam Film Festival"
             className="hero__title"
             width="2600"
-            height="1423"
+            height="1156"
           />
+
+          {/* Official festival dates — loud by design */}
+          <div className="hero__dates">
+            <span className="hero__dates-month">September</span>
+            <span className="hero__dates-days">22 – 27</span>
+            <span className="hero__dates-year">2026</span>
+          </div>
 
           <p className="hero__lede">{festival.lede}</p>
 
@@ -43,26 +77,14 @@ export function Hero() {
               Explore the festival
               <ArrowRight />
             </a>
-            <a href={regUrl} className="btn btn--ghost">
-              <TicketIcon />
-              {festival.registration.label}
-            </a>
           </div>
 
-          <ul className="hero__meta">
-            <li>
-              <Star4Icon aria-hidden="true" />
-              <span>{festival.edition} · {festival.year}</span>
-            </li>
-            <li>
-              <Star4Icon aria-hidden="true" />
-              <span>{festival.venue.name}</span>
-            </li>
-            <li>
-              <Star4Icon aria-hidden="true" />
-              <span>{festival.dates.label}</span>
-            </li>
-          </ul>
+          <p className="hero__meta">
+            <Star4Icon aria-hidden="true" />
+            <span>
+              {festival.venue.name} · {festival.venue.area}
+            </span>
+          </p>
         </div>
 
         {/* The mascot — a main character in the scene */}
@@ -89,7 +111,7 @@ export function Hero() {
 
       <span className="hero__sticker" aria-hidden="true">
         <Sticker tone="magenta" rotate={5}>
-          {festival.edition}
+          {festival.year}
         </Sticker>
       </span>
     </section>

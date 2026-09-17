@@ -35,7 +35,7 @@ export function Sponsors() {
           </div>
           <div className="sponsor-cta__text">
             <h3>Become a partner</h3>
-            <p>Big screen, bigger audience — partner with Rangam for {festival.edition}.</p>
+            <p>Big screen, bigger audience — partner with Rangam for {festival.year}.</p>
           </div>
           <span className="sponsor-cta__mail">{festival.contact.email}</span>
           <img src={assets.mascot.mask} alt="" className="sponsor-cta__mask" aria-hidden="true" loading="lazy" />

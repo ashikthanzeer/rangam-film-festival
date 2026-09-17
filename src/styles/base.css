@@ -16,6 +16,7 @@ html {
   scroll-behavior: smooth;
   scroll-padding-top: 90px; /* keep in-page anchors clear of the fixed nav */
   -webkit-text-size-adjust: 100%;
+  overflow-x: clip;
 }
 
 @media (prefers-reduced-motion: reduce) {

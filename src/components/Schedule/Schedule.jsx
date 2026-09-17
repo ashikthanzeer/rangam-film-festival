@@ -8,7 +8,7 @@ export function Schedule() {
   return (
     <section id="schedule" className="section schedule bg-paper">
       <div className="schedule__tex halftone halftone--strong" aria-hidden="true" />
-      <Marquee items={['dates TBC', 'keep a night free', 'Dhwani 26']} tone="cyan" className="schedule__ticker" />
+      <Marquee items={[festival.dates, 'keep a night free', "Dhwani '26"]} tone="cyan" className="schedule__ticker" />
 
       <div className="container schedule__in">
         <SectionHeading
@@ -16,7 +16,7 @@ export function Schedule() {
           title="The "
           kicker="running order"
           tone="dark"
-          note="A working skeleton of opening night to the final credits. Exact dates and times land here when they are official."
+          note="A working skeleton of opening night to the final credits — precise session times are locked in as the festival gets closer."
         />
 
         <div className="schedule__days">
@@ -27,7 +27,7 @@ export function Schedule() {
 
         <p className="schedule__foot">
           <span aria-hidden="true">✦</span>
-          All sessions at {festival.venue.name} · {festival.dates.label}
+          All sessions at {festival.venue.name} · {festival.dates}
         </p>
       </div>
     </section>

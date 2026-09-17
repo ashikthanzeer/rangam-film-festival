@@ -46,7 +46,7 @@ export function Events() {
 
         <p className="events__more">
           <span aria-hidden="true">✦</span>
-          More activities for {festival.edition} will be announced here.
+          More activities for {festival.year} will be announced here.
         </p>
       </div>
     </section>

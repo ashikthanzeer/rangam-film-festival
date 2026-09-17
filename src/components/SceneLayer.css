@@ -215,7 +215,22 @@
     display: none;
   }
 
+  .scene__note--b {
+    display: none;
+  }
+
   .scene__clouds {
     min-width: 1200px;
+  }
+}
+
+@media (max-width: 380px) {
+  .scene__flag--3 {
+    display: none;
+  }
+
+  .scene__lantern {
+    width: 54px;
+    top: 16%;
   }
 }

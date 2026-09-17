@@ -104,3 +104,30 @@ export const ArrowUpIcon = (p) => (
     <path d="M12 20V5m0 0-6 6m6-6 6 6" fill="none" stroke="currentColor" strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round" />
   </svg>
 )
+
+export const PhoneIcon = (p) => (
+  <svg {...base} {...p}>
+    <path
+      d="M5 4h4l1.5 4L8.5 9.6a12 12 0 0 0 5.9 5.9L16 14l4 1.5v4a1.6 1.6 0 0 1-1.8 1.6C10.8 20 4 13.2 3.4 5.8A1.6 1.6 0 0 1 5 4z"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinejoin="round"
+    />
+  </svg>
+)
+
+export const TrophyIcon = (p) => (
+  <svg {...base} {...p}>
+    <path d="M7 4h10v4a5 5 0 0 1-10 0V4z" fill="none" stroke="currentColor" strokeWidth="2" strokeLinejoin="round" />
+    <path d="M7 5H4.5a0 0 0 0 0 0 3.5A3.5 3.5 0 0 0 8 12M17 5h2.5a0 0 0 0 1 0 3.5A3.5 3.5 0 0 1 16 12" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+    <path d="M12 13v3.5M9 20h6M10.5 20a1.5 1.5 0 0 1 1.5-1.5 1.5 1.5 0 0 1 1.5 1.5" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+  </svg>
+)
+
+export const ClockIcon = (p) => (
+  <svg {...base} {...p}>
+    <circle cx="12" cy="12" r="8.5" fill="none" stroke="currentColor" strokeWidth="2" />
+    <path d="M12 7.5V12l3 2" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+  </svg>
+)

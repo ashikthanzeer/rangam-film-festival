@@ -22,7 +22,7 @@ export function About() {
           title="About "
           kicker="Rangam"
           tone="dark"
-          note={`Rangam is the film festival of ${festival.edition}, amplifying student cinema inside the biggest cultural carnival on campus.`}
+          note={`Rangam is the film festival of ${festival.year}, amplifying student cinema inside the biggest cultural carnival on campus.`}
         />
 
         <div className="about__grid">
@@ -35,7 +35,7 @@ export function About() {
             <p>
               Films are everything here: shorts, docs and animation from campus collectives and beyond, presented across the
               festival in curated blocks. Rangam is built <em>by</em> the student community at {festival.college} and for
-              every kind of film lover who wanders into {festival.edition}.
+              every kind of film lover who wanders into {festival.name}.
             </p>
 
             <ul className="about__chips" aria-label="What Rangam features">
@@ -48,8 +48,8 @@ export function About() {
               ))}
             </ul>
 
-            <a href="#films" className="link-arrow">
-              See the film line-up
+            <a href="#competition" className="link-arrow">
+              Enter the short film competition
               <ArrowRight />
             </a>
           </div>

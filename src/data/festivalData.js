@@ -1,59 +1,88 @@
 /* ============================================================
-   FESTIVAL DATA
-   ------------------------------------------------------------
-   All editable festival content lives here, away from components.
+   FESTIVAL DATA — single source of truth for site content.
+   Update this one file to change dates, branding, competition
+   details, jury, contacts or social links across the whole site.
 
-   ⚠ OFFICIAL CONTENT NOTE:
-   Everything below is placeholder copy. Replace the marked fields
-   with the real announcements for Dhwani '26 when they are final.
-   Do NOT ship invented dates, films, judges or registration URLs.
+   CONTENT NOTE:
+   films / schedule / events / sponsors below remain placeholder
+   exports for the temporarily-disabled sections — do not invent
+   content. Replace only when official announcements are published.
    ============================================================ */
 
 export const festival = {
   name: 'Rangam Film Festival',
-  edition: "Dhwani '26",
+  /* ── OFFICIAL festival dates ── */
+  dates: 'September 22–27, 2026',
   year: 2026,
   college: 'College of Engineering Trivandrum',
   collegeShort: 'CET',
   tagline: 'Where student films meet the big screen.',
   lede:
-    'Rangam is the student film festival of Dhwani — the annual techno-cultural festival of the College of Engineering Trivandrum. Screenings, jury shows and conversations built around films made by students, for everyone.',
-  // ── OFFICIAL: dates, venue & registration go here when announced ──
-  dates: {
-    label: 'Festival dates to be announced',
-    start: null, // OFFICIAL: e.g. "2026-XX-XX"
-    end: null, // OFFICIAL: e.g. "2026-XX-XX"
-  },
+    'Rangam is the student film festival where shorts, docs and animation meet a proper big screen. Screenings, juries and conversations built around films made by students, for everyone.',
   venue: {
     name: 'College of Engineering Trivandrum',
     area: 'Sreekariyam, Thiruvananthapuram, Kerala',
-    // OFFICIAL: link to a map / venue page once published
+    /* OFFICIAL: link to a map / venue page once published */
     mapUrl: null,
   },
-  registration: {
-    label: 'Registration opens soon',
-    // OFFICIAL: final registration gateway once live
-    url: null,
-  },
   contact: {
-    email: 'rangam@dhwani.org', // OFFICIAL: replace with real contact address
+    email: 'rangam@dhwani.org',
   },
+
+  /* ── OFFICIAL branding hierarchy:
+     Rangam Film Festival · conducted by CET Film Society ·
+     in association with Dhwani '26 ── */
+  organization: {
+    conductedBy: 'CET Film Society',
+    conductedByLogo: '/assets/logos/CET Film Society.png',
+    association: "Dhwani '26",
+    associationLogo: '/assets/logos/dhwani og 26.png',
+  },
+
+  /* ── UPCOMING: Rangam Short Film Competition ── */
+  shortFilmCompetition: {
+    title: 'Rangam Short Film Competition',
+    prize: '₹75,000',
+    registrationFee: '₹699',
+    deadline: 'September 17, 2026',
+    /* OFFICIAL registration gateway (supplied link, used as-is) */
+    registrationUrl: 'https://makemypass.com/event/rangam-short-film-competition',
+    /* OFFICIAL: paste the real guidelines URL here when shared.
+       Keep `null` until then — the UI shows a "coming soon"
+       placeholder and does NOT navigate to an unrelated page. */
+    guidelinesUrl: null,
+    contacts: [
+      { name: 'Sisira', phone: '9544758104', tel: 'tel:9544758104' },
+      { name: 'Afwan', phone: '9847910308', tel: 'tel:9847910308' },
+    ],
+  },
+
+  /* ── OFFICIAL Instagram destinations ── */
   socials: {
-    instagram: 'https://instagram.com', // OFFICIAL: real handles
+    rangam: {
+      handle: '@rangam.live',
+      url: 'https://www.instagram.com/rangam.live/',
+    },
+    dhwani: {
+      handle: '@dhwani_cet',
+      url: 'https://www.instagram.com/dhwani_cet/',
+    },
     youtube: null,
     whatsapp: null,
   },
 }
 
 export const navLinks = [
+  { label: 'Home', href: '#top' },
   { label: 'About', href: '#about' },
-  { label: 'Films', href: '#films' },
-  { label: 'Schedule', href: '#schedule' },
-  { label: 'Events', href: '#events' },
+  { label: 'Competition', href: '#competition' },
   { label: 'Jury', href: '#jury' },
   { label: 'Gallery', href: '#gallery' },
   { label: 'Contact', href: '#contact' },
 ]
+
+/* convenience alias so components can import competition data at top level */
+export const shortFilmCompetition = festival.shortFilmCompetition
 
 export const highlights = [
   {
@@ -122,7 +151,7 @@ export const films = [
 export const schedule = [
   {
     day: 'DAY 1',
-    when: 'TBA',
+    when: 'Sep 22',
     blocks: [
       { time: 'TBA', title: 'Opening Night — Inauguration & first screening', tag: 'Main Hall' },
       { time: 'TBA', title: 'Official Selection — Shorts block', tag: 'Screen 1' },
@@ -131,7 +160,7 @@ export const schedule = [
   },
   {
     day: 'DAY 2',
-    when: 'TBA',
+    when: 'Sep 23',
     blocks: [
       { time: 'TBA', title: 'Documentary & animation block', tag: 'Screen 1' },
       { time: 'TBA', title: 'Masterclass with a guest filmmaker', tag: 'Workshop' },
@@ -140,7 +169,7 @@ export const schedule = [
   },
   {
     day: 'DAY 3',
-    when: 'TBA',
+    when: 'Sep 24',
     blocks: [
       { time: 'TBA', title: 'Late selections — repeat blocks', tag: 'Screen 2' },
       { time: 'TBA', title: 'Grand Finale — Awards ceremony', tag: 'Main Hall' },
@@ -158,10 +187,23 @@ export const events = [
   { title: 'Film Quiz & Games', body: 'Trivia, stills and silly prizes between screenings.', icon: 'lantern' },
 ]
 
-/* ── OFFICIAL: replace with announced jury members ── */
+/* ── JURY — official line-up & photographs for the Short Film Competition ── */
 export const jury = [
-  { name: 'Jury panel to be announced', role: 'Guest jurors', note: 'Announcement coming soon.', img: '/assets/web/judge-1.png' },
-  { name: 'Jury panel to be announced', role: 'Campus jury', note: 'Announcement coming soon.', img: '/assets/web/judge-2.png' },
+  {
+    name: 'Arun Anirudhan',
+    role: 'Filmmaker & Screenwriter',
+    image: '/assets/jury/arun-anirudhan.png',
+  },
+  {
+    name: 'Jeo Baby',
+    role: 'Filmmaker & Screenwriter',
+    image: '/assets/jury/jeo-baby.png',
+  },
+  {
+    name: 'Nitin Baid',
+    role: 'Screen Writer',
+    image: '/assets/jury/nitin-baid.png',
+  },
 ]
 
 /* ── OFFICIAL: replace with real snapshots ── */
@@ -182,13 +224,13 @@ export const sponsors = [
   { name: 'Partner slot', blurb: 'Your brand here', logo: null },
 ]
 
-/* ── AMPLIFIED AS PART OF DHWANI '26 ── */
 export const parent = {
   name: "Dhwani '26",
   org: 'College of Engineering Trivandrum',
   logo: '/assets/logos/dhwani og 26.png',
 }
 
+/* ── OFFICIAL asset paths ── */
 export const assets = {
   mascot: {
     front: '/assets/web/mascot-front.png',
@@ -200,8 +242,15 @@ export const assets = {
     mask: '/assets/mascot/mascot%20mask.svg',
   },
   logos: {
-    rangamTitle: '/assets/web/rangam-title.png',
-    dhwani: '/assets/web/dhwani-26.png',
+    /* web-optimised official Rangam wordmark (2600×1156, transparent) */
+    rangamWeb: '/assets/web/rangam-logo.png',
+    /* alias kept so any older reference to rangamTitle still resolves
+       to the same optimised wordmark */
+    rangamTitle: '/assets/web/rangam-logo.png',
+    rangamOriginal: '/assets/logos/rangam-logo.png',
+    cetFilmSociety: '/assets/logos/CET Film Society.png',
+    /* in-association Dhwani '26 logo (hero badge prefers the small web cut) */
+    dhwani: '/assets/logos/dhwani og 26.png',
     dhwaniBasic: '/assets/logos/dhwani%20og%2026.png',
   },
   elements: {

@@ -13,8 +13,13 @@ export function Footer() {
 
       <div className="container footer__in">
         <div className="footer__brand">
-          <img src={assets.logos.rangamTitle} alt="Rangam" className="footer__title" />
-          <p className="footer__tag">The film festival of {festival.edition} · {festival.college}</p>
+          <img src={assets.logos.rangamWeb} alt="Rangam Film Festival" className="footer__title" />
+          <p className="footer__tag">
+            {festival.name} · {festival.dates}
+          </p>
+          <p className="footer__org">
+            Conducted by {festival.organization.conductedBy} · In association with {festival.organization.association}
+          </p>
         </div>
 
         <nav className="footer__nav" aria-label="Footer">
@@ -26,16 +31,22 @@ export function Footer() {
         </nav>
 
         <div className="footer__socials">
-          <a href={festival.socials.instagram} target="_blank" rel="noreferrer" aria-label="Rangam on Instagram">
+          <a href={festival.socials.rangam.url} target="_blank" rel="noreferrer" className="footer__social">
             <InstagramIcon />
+            <span>{festival.socials.rangam.handle}</span>
           </a>
-          <a href={`mailto:${festival.contact.email}`} aria-label="Email Rangam">
+          <a href={festival.socials.dhwani.url} target="_blank" rel="noreferrer" className="footer__social">
+            <InstagramIcon />
+            <span>{festival.socials.dhwani.handle}</span>
+          </a>
+          <a href={`mailto:${festival.contact.email}`} className="footer__social" aria-label="Email Rangam">
             <MailIcon />
+            <span className="footer__social-mail">Email</span>
           </a>
         </div>
 
         <div className="footer__bottom">
-          <p>A {festival.edition} production · Crafted for film lovers near the fountain.</p>
+          <p>A {festival.organization.association} production · Crafted for film lovers near the fountain.</p>
           <button type="button" className="footer__top" onClick={scrollTop}>
             Back to top
             <ArrowUpIcon />

@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
-import { festival, navLinks, parent, assets } from '../../data/festivalData.js'
-import { MenuIcon, CloseIcon, TicketIcon } from '../icons.jsx'
+import { festival, navLinks, assets } from '../../data/festivalData.js'
+import { MenuIcon, CloseIcon } from '../icons.jsx'
 import './Navbar.css'
 
 export function Navbar() {
@@ -30,14 +30,12 @@ export function Navbar() {
   }, [])
 
   const close = () => setOpen(false)
-  const regUrl = festival.registration.url ?? '#'
 
   return (
     <nav className={`nav${scrolled ? ' nav--scrolled' : ''}${open ? ' nav--open' : ''}`} aria-label="Primary">
       <div className="nav__bar">
-        <a className="nav__brand" href="#top" onClick={close} aria-label={`${parent.name} — ${festival.name}`}>
-          <img src={parent.logo} alt="" className="nav__logo" />
-          <span className="nav__brandtext">Rangam Film Festival</span>
+        <a className="nav__brand" href="#top" onClick={close} aria-label={festival.name}>
+          <img src={assets.logos.rangamWeb} alt="" className="nav__logo" width="2600" height="1156" />
         </a>
 
         <ul className="nav__links">
@@ -51,11 +49,6 @@ export function Navbar() {
         </ul>
 
         <div className="nav__actions">
-          <a href={regUrl} className="btn btn--yellow btn--sm nav__cta">
-            <TicketIcon />
-            Register
-            <span className="sr-only"> (registration opens soon)</span>
-          </a>
           <button
             className="nav__burger"
             onClick={() => setOpen((v) => !v)}

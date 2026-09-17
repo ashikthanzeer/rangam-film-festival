@@ -15,7 +15,7 @@ export function Films() {
 
       <div className="container films__in">
         <SectionHeading
-          eyebrow={`${festival.edition} · Line-up`}
+          eyebrow={`${festival.year} · Line-up`}
           title="The big "
           kicker="screen"
           note="The official selection will be posted here. Until then — imagine your favourites up there."
